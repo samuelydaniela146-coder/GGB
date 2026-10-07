@@ -1,0 +1,271 @@
+/* ==========================================
+   VARIABLES GLOBALES Y RESETEO
+   ========================================== */
+@import url();
+
+:root {
+    --bg-main: #0a0a0a;
+    --bg-card: #141414;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --border-color: #222222;
+    --accent-hover: #ffffff;
+    --radius: 16px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   NAVEGACIÓN / HEADER
+   ========================================== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    position: relative;
+}
+
+nav a:hover {
+    color: var(--text-primary);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--text-primary);
+    transition: var(--transition);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   SECCIÓN INICIO / HERO
+   ========================================== */
+.inicio {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1e1e1e 0%, #0a0a0a 100%);
+    padding: 0 20px;
+}
+
+.inicio h1 {
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 800;
+    letter-spacing: 6px;
+    margin-bottom: 10px;
+    background: linear-gradient(180deg, #ffffff 0%, #777777 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.inicio p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+}
+
+.boton {
+    display: inline-block;
+    background-color: var(--text-primary);
+    color: #000000;
+    padding: 16px 36px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+.boton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+    background-color: #e6e6e6;
+}
+
+/* ==========================================
+   SECCIÓN PRODUCTOS
+   ========================================== */
+.productos {
+    padding: 100px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.productos h2 {
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.producto {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+}
+
+.producto:hover {
+    transform: translateY(-8px);
+    border-color: #333333;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+}
+
+.producto img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.producto:hover img {
+    transform: scale(1.02);
+}
+
+.producto h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.precio {
+    font-size: 18px;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.comprar {
+    width: 100%;
+    padding: 14px;
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    transition: var(--transition);
+}
+
+.comprar:hover {
+    background-color: var(--text-primary);
+    color: #000000;
+}
+
+/* ==========================================
+   SECCIÓN CONTACTO & FOOTER
+   ========================================== */
+.contacto {
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.contacto h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.contacto p {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+footer {
+    background-color: var(--bg-main);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    padding: 25px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* ==========================================
+   RESPONSIVO (DISPOSITIVOS MÓVILES)
+   ========================================== */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 5%;
+    }
+    
+    nav a {
+        margin-left: 15px;
+        font-size: 13px;
+    }
+
+    .productos {
+        padding: 60px 5%;
+    }
+}
